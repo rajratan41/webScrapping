@@ -84,3 +84,69 @@ tex2 = soup.get_text()
 # print(tex2)
 
 
+# Get Specific div using it's Id
+divId = soup.find(id="someId")
+# print(divId)
+# it will give that specific div with it's id someId if present
+
+# Get Children of the div have id is someId
+
+divId2 = soup.find(id="someId").children
+# print(divId2)
+# it will give that specific div with it's id someId if present
+
+# Get Contents of the div have id is someId
+
+divId3 = soup.find(id = "someId")
+
+for ele in divId3.contents:
+    # print(ele)
+# print(divId3)
+# it will give that specific div with it's id someId if present
+
+
+# Diffrence between .contents and .children
+
+# .contents - A tag's children are available as a list.  (sare elements save honge memory me), (slow hoga bare pages k liye bcz memory me store hoga)
+# .children - A tag's children are available as a generator.  (memory me store nhi hoga but kvi bhi access kar sakte hain - iterate kr k for loop se), (fast hoga bare pages k liye)
+
+
+# ####################################
+
+# Get strings inside a specific div with id
+
+divId4 = soup.find(id = "someId")
+
+for item in divId4.strings:
+    # print(item)
+
+# Beautify string
+for i in divId4.stripped_strings:
+    # print(i)
+
+# To print parent of divid4
+# print(divId4.parent)
+
+# iterate though parents
+for it in divId4.parents:
+    # print(item.name) - nav, body, html, [document]
+
+# #########################
+# .next_sibling, .previous_sibling - space ko v element samjhta hai
+
+# print(divId.next_sibling)
+# print(divId.next_sibling.next_sibling) 
+#(.next_sibling kr k kitne v aage jaa skte hain)
+
+# print(divId.previous_sibling.previous_sibling)
+
+#####################################
+# To get CSS selector
+    # (# - id , . - class)
+eleme = soup.select(".loginModal")
+eleme1 = soup.select("#loginModal")
+
+
+
+# Documentation of Beautiful Soup
+# https://www.crummy.com/software/BeautifulSoup/bs4/doc/
